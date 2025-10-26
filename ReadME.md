@@ -9,7 +9,7 @@ Powered by **Open-Meteo** (no API key needed) with an optional **OpenWeatherMap*
 
 - **Live Site:** _Add your link here (GitHub Pages / Vercel / Netlify)_
 - **Screenshots/GIFs:**  
-  ![App Screenshot](./assets/screenshot.png) <!-- replace with your image path -->
+
 
 ---
 
@@ -73,3 +73,34 @@ python3 -m http.server 5173
 python -m http.server 5173
 
 # Visit http://localhost:5173
+
+API Details (Open-Meteo – default)
+Geocoding (city → lat/lon)
+
+GET https://geocoding-api.open-meteo.com/v1/search
+  ?name=Seattle
+  &count=1
+
+Sample response (trimmed)
+{
+  "results": [
+    { "name": "Seattle", "latitude": 47.6036, "longitude": -122.3294, "country_code": "US" }
+  ]
+}
+
+Weather (coordinates → data)
+GET https://api.open-meteo.com/v1/forecast
+  ?latitude=47.6036
+  &longitude=-122.3294
+  &current_weather=true
+  &hourly=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m
+  &daily=temperature_2m_max,temperature_2m_min
+  &timezone=auto
+
+#You’ll use:
+
+#current_weather.temperature
+
+#Hourly arrays aligned to current_weather.time (humidity, feels-like, wind)
+
+#Daily arrays (temperature_2m_max/min) → show next 5 days
