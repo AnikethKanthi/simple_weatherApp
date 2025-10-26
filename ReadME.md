@@ -5,11 +5,6 @@ Powered by **Open-Meteo** (no API key needed) with an optional **OpenWeatherMap*
 
 ---
 
-## ✨ Demo
-
-- **Live Site:** _Add your link here (GitHub Pages / Vercel / Netlify)_
-- **Screenshots/GIFs:**  
-
 
 ---
 
